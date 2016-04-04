@@ -2,21 +2,6 @@
 
 class Sudoku{
 	public:
-		int ans[9][9];
-		int ANS[9][9];
-
-		int observe_row[9];
-		int observe_column[9];
-		int observe_cell[9];
-		int conclude_observe[9];
-		int statistics[9][9][9];
-		
-		int OBSERVE_ROW[9];
-		int OBSERVE_COLUMN[9];
-		int OBSERVE_CELL[9];
-		int CONCLUDE_OBSERVE[9];
-		int STATISTICS[9][9][9];
-
 		void giveQuestion();
 
 		void readIn();
@@ -26,19 +11,21 @@ class Sudoku{
 		bool checkCell();
 		bool checkSolvable();
 		
-		void observeRow(int x, int y);
-		void observeColumn(int x, int y);
-		void observeCell(int x, int y);
-		void fillBlank();
-		void guess();
-		void repeat();
+		bool map_observeRow(int x);
+		bool map_observeColumn(int x);
+		bool map_observeCell(int x);
 		
-		void OBSERVEROW(int x, int y);
-		void OBSERVECOLUMN(int x, int y);
-		void OBSERVECELL(int x, int y);
-		void FILLBLANK();
-		void GUESS();
-		void REPEAT();
+		bool MAP_observeRow(int x);
+		bool MAP_observeColumn(int x);
+		bool MAP_observeCell(int x);
+		
+		int record_map_result;
+		int map_findSpace();
+		void map_fillBlank();
+		
+		int record_MAP_result;
+		int MAP_findSpace();
+		void MAP_fillBlank();
 	
 		void solve();
 
@@ -51,8 +38,10 @@ class Sudoku{
 		void transform();
 
 		void printOut();
-		void printAns();
 	private:
 		static const int SIZE = 81;
 		int map[SIZE];
+		int MAP[SIZE];
+		int remap[SIZE];
+		int REMAP[SIZE];
 };

@@ -898,35 +898,15 @@ void Sudoku::flip(int n){
 }
 
 void Sudoku::transform(){
-	int randnum;
-
 	srand(time(NULL));
-	randnum = rand()%5;
-
-	cout << "The new Sudoku after ";
-
-	if(randnum==0){
-		changeNum(rand()%9+1,rand()%9+1);
-		cout << "changing number:" << endl;
-	}
-	if(randnum==1){
-		changeRow(rand()%3,rand()%3);
-		cout << "changing row:" << endl;
-	}
-	if(randnum==2){
-		changeCol(rand()%3,rand()%3);
-		cout << "changing column:" << endl;
-	}
-	if(randnum==3){
-		rotate(rand()%101);
-		cout << "rotating:" << endl;
-	}
-	if(randnum==4){
-		flip(rand()%2);
-		cout << "flipping:" << endl;
-	}
-
-	printOut();
+	changeNum(rand()%9+1,rand()%9+1);
+	changeRow(rand()%3,rand()%3);
+	changeCol(rand()%3,rand()%3);
+	rotate(rand()%101);
+	flip(rand()%2);
+	
+	for(int i=0;i<SIZE;++i)
+		printf("%d%c",map[i],(i+1)%9==0?'\n':' ');
 }
 
 void Sudoku::printOut(){
